@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products - Space Tigers</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        /* General button styling */
+        button.add-to-cart-btn {
+            padding: 10px 20px;
+            background-color: transparent;
+            border: 2px solid #333;
+            color: #333;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        button.add-to-cart-btn:hover {
+            background-color: #333;
+            color: white;
+        }
+
+        button.add-to-cart-btn:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Ensures spacing between buttons and elements */
+        .product-container {
+            margin-bottom: 15px;
+        }
+
+        /* Username display next to logo */
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .username-display {
+            margin-left: 15px;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo-container">
+                <img src="https://i.ibb.co/B2mgCdT/UPSSTiger.png" width="120px" alt="Space Tiger Logo">
+                <span class="username-display" id="usernameDisplay"></span> <!-- Username display -->
+            </div>
+            <nav> 
+                <ul id="MenuItems">
+                    <li><a href="STindex.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="accounts.html" id="accountLink">Account</a></li>
+                </ul>
+            </nav>
+            <!-- Cart Icon that links to cart.html -->
+            <img src="https://i.ibb.co/bbkfYHR/shopping-cart.png" width="30px" height="30px" alt="Cart Icon" class="cart-icon" onclick="window.location.href='cart.html'">
+            <img src="https://i.ibb.co/wgLQyHW/588a6507d06f6719692a2d15.png" width="30px" height="30px" alt="Menu Icon" class="menu-icon" onclick="menutoggle()">
+        </div>
+    </div>
+</div>
+
+<!-- Menu Toggle Script -->
+<script>
+    function menutoggle() {
+        var MenuItems = document.getElementById("MenuItems");
+        if (MenuItems.style.maxHeight == "0px" || MenuItems.style.maxHeight == "") {
+            MenuItems.style.maxHeight = "200px";
+        } else {
+            MenuItems.style.maxHeight = "0px";
+        }
+    }
+</script>
+
+<!-- All Products Section -->
+<div class="small-container">
+    <div class="row row-2">
+        <h2>All Products</h2>
+    </div>
+    <select id="sortOptions" onchange="sortProducts()">
+        <option value="default">Default Sorting</option>
+        <option value="priceLowHigh">Sort by Price: Low to High</option>
+        <option value="priceHighLow">Sort by Price: High to Low</option>
+        <option value="rating">Sort by Rating</option>
+    </select>
+
+    <div id="products" class="row">
+        <!-- Product 1 -->
+        <div class="col-6 product-container" data-price="25" data-rating="4">
+            <img src="https://i.ibb.co/9gGtQdw/file.jpg" alt="Space Tiger's Water Bottle">
+            <h5>Space Tiger's Water Bottle</h5>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p>$25.00</p>
+            <label for="quantity-1">Quantity:</label>
+            <select id="quantity-1">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <button class="add-to-cart-btn" onclick="addToCart('Space Tiger Water Bottle', 25, 'https://i.ibb.co/9gGtQdw/file.jpg', 'quantity-1')">Add to Cart</button>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="col-5 product-container" data-price="35" data-rating="5">
+            <img src="https://i.etsystatic.com/42327702/r/il/6f51fe/6147878809/il_794xN.6147878809_4w4w.jpg" alt="Space Tiger's T-Shirt">
+            <h5>Space Tiger's Unisex T-Shirt</h5>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>$35.00</p>
+            <label for="quantity-2">Quantity:</label>
+            <select id="quantity-2">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <button class="add-to-cart-btn" onclick="addToCart('Space Tiger Unisex T-Shirt', 35, 'https://i.etsystatic.com/42327702/r/il/6f51fe/6147878809/il_794xN.6147878809_4w4w.jpg', 'quantity-2')">Add to Cart</button>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="col-5 product-container" data-price="60" data-rating="3">
+            <img src="https://m.media-amazon.com/images/I/71tFGG98YUL._AC_SX679_.jpg" alt="Space Tiger's Shorts">
+            <h5>Space Tiger Eyes Shorts</h5>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p>$60.00</p>
+            <label for="quantity-3">Quantity:</label>
+            <select id="quantity-3">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <button class="add-to-cart-btn" onclick="addToCart('Space Tiger Eyes Shorts', 60, 'https://m.media-amazon.com/images/I/71tFGG98YUL._AC_SX679_.jpg', 'quantity-3')">Add to Cart</button>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="col-5 product-container" data-price="99" data-rating="5">
+            <img src="https://coolwear.shop/cdn/shop/files/1774-1_ad98af07-0700-4e43-ae55-8369bc5b0ab9_480x.jpg?v=1709891962" alt="Space Tiger's Crocs">
+            <h5>Space Tiger Crocs Supremes</h5>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>$99.00</p>
+            <label for="quantity-4">Quantity:</label>
+            <select id="quantity-4">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <button class="add-to-cart-btn" onclick="addToCart('Space Tiger Crocs Supremes', 99, 'https://coolwear.shop/cdn/shop/files/1774-1_ad98af07-0700-4e43-ae55-8369bc5b0ab9_480x.jpg', 'quantity-4')">Add to Cart</button>
+        </div>
+
+         <!-- Product 5 -->
+         <div class="col-5 product-container" data-price="99" data-rating="5">
+            <img src="https://i.ibb.co/jrxf136/piaget-01.jpg" alt="piaget-01" border="0" />
+            <h5>Space Tiger Watch</h5>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>$250.00</p>
+            <label for="quantity-4">Quantity:</label>
+            <select id="quantity-4">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <button class="add-to-cart-btn" onclick="addToCart('Space Tiger Watch', 250, 'https://i.ibb.co/jrxf136/piaget-01.jpg', 'quantity-4')">Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript to handle Add to Cart and Sorting functionality -->
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function addToCart(productName, price, imageUrl, quantitySelectorId) {
+        const quantity = document.getElementById(quantitySelectorId).value;
+        cart.push({
+            product: productName,
+            price: price,
+            quantity: parseInt(quantity),
+            image: imageUrl
+        });
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${quantity} ${productName}(s) have been added to your cart.`);
+    }
+
+    function sortProducts() {
+        const sortOption = document.getElementById('sortOptions').value;
+        const productsContainer = document.getElementById('products');
+        const products = Array.from(document.querySelectorAll('.product-container'));
+
+        let sortedProducts = [];
+
+        if (sortOption === 'priceLowHigh') {
+            sortedProducts = products.sort((a, b) => a.getAttribute('data-price') - b.getAttribute('data-price'));
+        } else if (sortOption === 'priceHighLow') {
+            sortedProducts = products.sort((a, b) => b.getAttribute('data-price') - a.getAttribute('data-price'));
+        } else if (sortOption === 'rating') {
+            sortedProducts = products.sort((a, b) => b.getAttribute('data-rating') - a.getAttribute('data-rating'));
+        } else {
+            // Default sorting (could just append in the original order)
+            sortedProducts = products;
+        }
+
+        // Clear the container and append sorted products
+        productsContainer.innerHTML = '';
+        sortedProducts.forEach(product => {
+            productsContainer.appendChild(product);
+        });
+    }
+
+    function updateNavbar() {
+        let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+        let accountLink = document.getElementById('accountLink');
+        let navbar = document.querySelector('.navbar ul');
+
+        if (loggedInUser) {
+            accountLink.innerHTML = 'Profile';
+            accountLink.href = 'accounts.html';
+
+            let logoutLink = document.createElement('li');
+            logoutLink.innerHTML = '<a href="#" id="logoutLink">Logout</a>';
+            navbar.appendChild(logoutLink);
+
+            document.getElementById('logoutLink').addEventListener('click', function () {
+                localStorage.removeItem('loggedInUser');
+                alert('You have been logged out.');
+                window.location.reload();
+            });
+        }
+    }
+
+    window.onload = function () {
+        updateNavbar();
+    };
+</script>
+
+<!-- Footer -->
+<div class="footer">
+    <div class="container footer-content">
+        <h3>Download a PDF of Our Most Recent Offers</h3>  
+        <p>Download on all platforms & open with Adobe Acrobat</p>
+        <img src="https://www.freeiconspng.com/uploads/pdf-icon-4.png" width="40px" height="40px" alt="PDF Icon" style="cursor: pointer;" onclick="downloadPDF()">
+    </div>
+</div>
+
+<script>
+    function downloadPDF() {
+        var link = document.createElement('a');
+        link.href = 'https://jmp.sh/s/ZohR9Q11VEYSGpBs4a5N';  // Your provided PDF link
+        link.download = 'most-recent-offers.pdf';  // Name of the file when downloaded
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+</script>
+
+</body>
+</html>
